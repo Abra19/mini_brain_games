@@ -4,7 +4,7 @@
   "description": "My first Hexlet project",
   "main": "bin/brain-games.js",
   "bin": {
-    "code": "bin/brain-games.js"
+    "brain-games": "bin/brain-games.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,5 +23,6 @@
   "bugs": {
     "url": "https://github.com/Abra19/frontend-project-lvl1/issues"
   },
+  "type": "module",
   "homepage": "https://github.com/Abra19/frontend-project-lvl1#readme"
 }
