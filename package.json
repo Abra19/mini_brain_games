@@ -1,8 +1,11 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "first Hexlet project",
-  "main": "index.js",
+  "description": "My first Hexlet project",
+  "main": "bin/brain-games.js",
+  "bin": {
+    "code": "bin/brain-games.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +13,12 @@
     "type": "git",
     "url": "git+https://github.com/Abra19/frontend-project-lvl1.git"
   },
-  "author": "Abra19",
+  "keywords": [
+    "JavaScript",
+    "Console",
+    "Games"
+  ],
+  "author": "Elena Abrarova",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Abra19/frontend-project-lvl1/issues"
