@@ -4,10 +4,13 @@ install:
 brain-games:
 	node bin/brain-games.js
 
+brain-even:
+	node bin/brain-even.js
+
 lint:
 	npx eslint .
 
 publish:
 	npm publish --dry-run
 
-.PHONY: brain-games
+.PHONY: brain-games brain-even

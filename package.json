@@ -2,9 +2,9 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "My first Hexlet project",
-  "main": "bin/brain-games.js",
   "bin": {
-    "brain-games": "bin/brain-games.js"
+    "brain-games": "bin/brain-games.js",
+    "brain-even": "bin/brain-even.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
