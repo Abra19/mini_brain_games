@@ -1,18 +1,14 @@
 import readlineSync from 'readline-sync';
-import {
-  questionIsEven, trueAnswerEven, isTrueAnswerEven, makeQuestionEven,
-} from './games/evenGame.js';
-import {
-  questionForCalc, makeQuestionCalc, trueAnswerCalc, isTrueAnswerCalc,
-} from './games/calcGame.js';
-import {
-  questionForGCD, makeQuestionGCD, trueAnswerGCD, isTrueAnswerGCD,
-} from './games/gcdGame.js';
+import { questionIsEven, isTrueAnswerEven, makeQuestionEven } from './games/evenGame.js';
+import { questionForCalc, makeQuestionCalc, isTrueAnswerCalc } from './games/calcGame.js';
+import { questionForGCD, makeQuestionGCD, isTrueAnswerGCD } from './games/gcdGame.js';
+import { questionForProgression, makeQuestionProgression, isTrueAnswerProgression } from './games/progressionGame.js';
 
 /*  gameNumber:
  *  1 - brain-even
  *  2 - brain-calc
  *  3 - brain-gcd
+ *  4 - brain-progression
  *
 */
 
@@ -28,6 +24,9 @@ const introduction = (gameNumber) => {
     case '3':
       result = questionForGCD;
       break;
+    case '4':
+      result = questionForProgression;
+      break;
     default:
       break;
   }
@@ -35,7 +34,7 @@ const introduction = (gameNumber) => {
 };
 
 const makeQuestion = (gameNumber) => {
-  let items = [];
+  let items = ' ';
   const numbersMaximum = 100;
   switch (gameNumber) {
     case '1':
@@ -47,6 +46,9 @@ const makeQuestion = (gameNumber) => {
     case '3':
       items = makeQuestionGCD(numbersMaximum);
       break;
+    case '4':
+      items = makeQuestionProgression(numbersMaximum);
+      break;
     default:
       break;
   }
@@ -57,29 +59,35 @@ const readAnswer = (gameNumber) => {
   const stringQuestion = makeQuestion(gameNumber);
   const items = stringQuestion.split(' ');
   const answer = readlineSync.question(`Question: ${stringQuestion}\nYour answer: `);
+  const tmpArray = [];
   const arraySaveAnswer = [];
   arraySaveAnswer.push(answer);
   switch (gameNumber) {
     case '1':
-      arraySaveAnswer.push(trueAnswerEven(items[0]));
-      arraySaveAnswer.push(isTrueAnswerEven(items[0], answer));
+      tmpArray.push(...isTrueAnswerEven(items[0], answer));
       break;
     case '2':
-      arraySaveAnswer.push(trueAnswerCalc(items[0], items[1], items[2]));
-      arraySaveAnswer.push(isTrueAnswerCalc(items[0], items[1], items[2], answer));
+      tmpArray.push(...isTrueAnswerCalc(items[0], items[1], items[2], answer));
       break;
     case '3':
-      arraySaveAnswer.push(trueAnswerGCD(items[0], items[1]));
-      arraySaveAnswer.push(isTrueAnswerGCD(items[0], items[1], answer));
+      tmpArray.push(...isTrueAnswerGCD(items[0], items[1], answer));
+      break;
+    case '4':
+      tmpArray.push(...isTrueAnswerProgression(items, answer));
       break;
     default:
       break;
   }
+  arraySaveAnswer.push(String(tmpArray[0]));
+  arraySaveAnswer.push(tmpArray[1]);
   return arraySaveAnswer;
 };
 
 const brainLogic = (name, gameNumber) => {
   let count = 1;
+  if (gameNumber > 5 || gameNumber < 1) {
+    console.log('No such game');
+  }
   console.log(introduction(gameNumber));
   while (count <= 3) {
     const [answer, correctAnswer, isCorrectAnswer] = readAnswer(gameNumber);

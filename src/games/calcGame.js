@@ -19,7 +19,7 @@ export const makeQuestionCalc = (maximum) => {
   return items;
 };
 
-export const trueAnswerCalc = (a, operation, b) => {
+const trueAnswerCalc = (a, operation, b) => {
   if (operation === '+') {
     return Number(a) + Number(b);
   }
@@ -32,7 +32,7 @@ export const trueAnswerCalc = (a, operation, b) => {
 export const isTrueAnswerCalc = (a, operation, b, answer) => {
   const etalon = trueAnswerCalc(a, operation, b);
   if (Number(answer) === etalon) {
-    return true;
+    return [etalon, true];
   }
-  return false;
+  return [etalon, false];
 };

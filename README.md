@@ -12,3 +12,6 @@ https://asciinema.org/a/mtzDajiMDwt22KUCcURjSolX6
 https://asciinema.org/a/4v79eNIQnablBmQVvUXUexzbC
 ### Game brain-gcd:
 https://asciinema.org/a/k74yHj1r9xPs1Foliv1eRULPj
+### Game brain-progression:
+ https://asciinema.org/a/7fnI9NCfSKJEzX8uoxPMg33ps
+ 

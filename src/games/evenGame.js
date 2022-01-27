@@ -7,7 +7,13 @@ const isEven = (number) => {
   return false;
 };
 
-export const trueAnswerEven = (number) => {
+export const makeQuestionEven = (maximum) => {
+  let items = '';
+  items += `${Math.ceil(Math.random() * maximum)}`;
+  return items;
+};
+
+const trueAnswerEven = (number) => {
   if (isEven(number)) {
     return 'yes';
   }
@@ -15,14 +21,9 @@ export const trueAnswerEven = (number) => {
 };
 
 export const isTrueAnswerEven = (number, answer) => {
-  if ((isEven(number) && answer === 'yes') || (!isEven(number) && answer === 'no')) {
-    return true;
+  const etalon = trueAnswerEven(number);
+  if ((trueAnswerEven(number) === 'yes' && answer === 'yes') || (trueAnswerEven(number) === 'no' && answer === 'no')) {
+    return [etalon, true];
   }
-  return false;
-};
-
-export const makeQuestionEven = (maximum) => {
-  let items = '';
-  items += `${Math.ceil(Math.random() * maximum)}`;
-  return items;
+  return [etalon, false];
 };

@@ -17,12 +17,12 @@ export const makeQuestionGCD = (maximum) => {
   return items;
 };
 
-export const trueAnswerGCD = (a, b) => (gcd(a, b));
+const trueAnswerGCD = (a, b) => (gcd(a, b));
 
 export const isTrueAnswerGCD = (a, b, answer) => {
   const etalon = trueAnswerGCD(a, b);
   if (Number(answer) === etalon) {
-    return true;
+    return [etalon, true];
   }
-  return false;
+  return [etalon, false];
 };
