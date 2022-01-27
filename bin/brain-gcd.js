@@ -4,4 +4,4 @@ import brainLogic from '../src/index.js';
 
 const [name, message] = helloUser();
 console.log(message);
-brainLogic(name, '1');
+brainLogic(name, '3');

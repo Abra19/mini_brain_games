@@ -21,8 +21,8 @@ export const isTrueAnswerEven = (number, answer) => {
   return false;
 };
 
-export const makeQuestionEven = () => {
+export const makeQuestionEven = (maximum) => {
   let items = '';
-  items += `${Math.ceil(Math.random() * 100)}`;
+  items += `${Math.ceil(Math.random() * maximum)}`;
   return items;
 };

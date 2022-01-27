@@ -10,3 +10,5 @@ https://asciinema.org/a/XDBv63TzHVSeqf1rBilrtJDVj
 https://asciinema.org/a/mtzDajiMDwt22KUCcURjSolX6
 ### Game brain-calc:
 https://asciinema.org/a/4v79eNIQnablBmQVvUXUexzbC
+### Game brain-gcd:
+https://asciinema.org/a/k74yHj1r9xPs1Foliv1eRULPj

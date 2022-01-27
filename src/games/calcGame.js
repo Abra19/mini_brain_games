@@ -1,4 +1,4 @@
-export const resultExpression = 'What is the result of the expression?';
+export const questionForCalc = 'What is the result of the expression?';
 
 const selectOperation = () => {
   const number = Math.ceil(Math.random() * 100);
@@ -11,11 +11,11 @@ const selectOperation = () => {
   return '*';
 };
 
-export const makeQuestionCalc = () => {
+export const makeQuestionCalc = (maximum) => {
   let items = '';
-  items += `${Math.ceil(Math.random() * 100)} `;
+  items += `${Math.ceil(Math.random() * maximum)} `;
   items += `${selectOperation()} `;
-  items += `${Math.ceil(Math.random() * 100)}`;
+  items += `${Math.ceil(Math.random() * maximum)}`;
   return items;
 };
 

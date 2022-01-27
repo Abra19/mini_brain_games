@@ -1,21 +1,51 @@
 import readlineSync from 'readline-sync';
-import { trueAnswerEven, isTrueAnswerEven, makeQuestionEven } from './games/analyzeEven.js';
-import { makeQuestionCalc, trueAnswerCalc, isTrueAnswerCalc } from './games/analyzeCalc.js';
+import {
+  questionIsEven, trueAnswerEven, isTrueAnswerEven, makeQuestionEven,
+} from './games/evenGame.js';
+import {
+  questionForCalc, makeQuestionCalc, trueAnswerCalc, isTrueAnswerCalc,
+} from './games/calcGame.js';
+import {
+  questionForGCD, makeQuestionGCD, trueAnswerGCD, isTrueAnswerGCD,
+} from './games/gcdGame.js';
 
 /*  gameNumber:
  *  1 - brain-even
  *  2 - brain-calc
+ *  3 - brain-gcd
  *
 */
 
-const makeQuestion = (gameNumber) => {
-  let items = [];
+const introduction = (gameNumber) => {
+  let result = '';
   switch (gameNumber) {
     case '1':
-      items = makeQuestionEven();
+      result = questionIsEven;
       break;
     case '2':
-      items = makeQuestionCalc();
+      result = questionForCalc;
+      break;
+    case '3':
+      result = questionForGCD;
+      break;
+    default:
+      break;
+  }
+  return result;
+};
+
+const makeQuestion = (gameNumber) => {
+  let items = [];
+  const numbersMaximum = 100;
+  switch (gameNumber) {
+    case '1':
+      items = makeQuestionEven(numbersMaximum);
+      break;
+    case '2':
+      items = makeQuestionCalc(numbersMaximum);
+      break;
+    case '3':
+      items = makeQuestionGCD(numbersMaximum);
       break;
     default:
       break;
@@ -38,6 +68,10 @@ const readAnswer = (gameNumber) => {
       arraySaveAnswer.push(trueAnswerCalc(items[0], items[1], items[2]));
       arraySaveAnswer.push(isTrueAnswerCalc(items[0], items[1], items[2], answer));
       break;
+    case '3':
+      arraySaveAnswer.push(trueAnswerGCD(items[0], items[1]));
+      arraySaveAnswer.push(isTrueAnswerGCD(items[0], items[1], answer));
+      break;
     default:
       break;
   }
@@ -46,6 +80,7 @@ const readAnswer = (gameNumber) => {
 
 const brainLogic = (name, gameNumber) => {
   let count = 1;
+  console.log(introduction(gameNumber));
   while (count <= 3) {
     const [answer, correctAnswer, isCorrectAnswer] = readAnswer(gameNumber);
     if (isCorrectAnswer && count < 3) {
