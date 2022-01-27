@@ -108,7 +108,7 @@ const brainLogic = (name, gameNumber) => {
       console.log(`Correct!\nCongratulations, ${name}!`);
       break;
     } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
       break;
     }
   }
