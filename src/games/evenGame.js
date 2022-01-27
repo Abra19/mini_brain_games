@@ -22,7 +22,7 @@ const trueAnswerEven = (number) => {
 
 export const isTrueAnswerEven = (number, answer) => {
   const etalon = trueAnswerEven(number);
-  if ((trueAnswerEven(number) === 'yes' && answer === 'yes') || (trueAnswerEven(number) === 'no' && answer === 'no')) {
+  if ((etalon === 'yes' && answer === 'yes') || (etalon === 'no' && answer === 'no')) {
     return [etalon, true];
   }
   return [etalon, false];

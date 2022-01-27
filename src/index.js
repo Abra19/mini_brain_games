@@ -3,13 +3,14 @@ import { questionIsEven, isTrueAnswerEven, makeQuestionEven } from './games/even
 import { questionForCalc, makeQuestionCalc, isTrueAnswerCalc } from './games/calcGame.js';
 import { questionForGCD, makeQuestionGCD, isTrueAnswerGCD } from './games/gcdGame.js';
 import { questionForProgression, makeQuestionProgression, isTrueAnswerProgression } from './games/progressionGame.js';
+import { questionIsPrime, isTrueAnswerPrime, makeQuestionPrime } from './games/primeGame.js';
 
 /*  gameNumber:
  *  1 - brain-even
  *  2 - brain-calc
  *  3 - brain-gcd
  *  4 - brain-progression
- *
+ *  5 - brain-prime
 */
 
 const introduction = (gameNumber) => {
@@ -26,6 +27,9 @@ const introduction = (gameNumber) => {
       break;
     case '4':
       result = questionForProgression;
+      break;
+    case '5':
+      result = questionIsPrime;
       break;
     default:
       break;
@@ -48,6 +52,9 @@ const makeQuestion = (gameNumber) => {
       break;
     case '4':
       items = makeQuestionProgression(numbersMaximum);
+      break;
+    case '5':
+      items = makeQuestionPrime(numbersMaximum);
       break;
     default:
       break;
@@ -74,6 +81,9 @@ const readAnswer = (gameNumber) => {
       break;
     case '4':
       tmpArray.push(...isTrueAnswerProgression(items, answer));
+      break;
+    case '5':
+      tmpArray.push(...isTrueAnswerPrime(items, answer));
       break;
     default:
       break;
