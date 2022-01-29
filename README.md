@@ -36,3 +36,4 @@ This project implemented a set of mini-games launched from the console
       * `brain-progression`    - Finding the missing element of an arithmetic progression game
 
        [![asciicast](https://asciinema.org/a/7fnI9NCfSKJEzX8uoxPMg33ps.svg)](https://asciinema.org/a/7fnI9NCfSKJEzX8uoxPMg33ps)
+
