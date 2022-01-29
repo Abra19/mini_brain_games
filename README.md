@@ -31,7 +31,7 @@ This project implemented a set of mini-games launched from the console
 
       * `brain-prime`          - Prime search game
 
-       [![asciicast](https://asciinema.org/a/xrcjjb89DzGnpSlGsBpDxx5Ep.svg)](https://asciinema.org/a/xrcjjb89DzGnpSlGsBpDxx5Ep)
+      [![asciicast](https://asciinema.org/a/xrcjjb89DzGnpSlGsBpDxx5Ep.svg)](https://asciinema.org/a/xrcjjb89DzGnpSlGsBpDxx5Ep)
 
       * `brain-progression`    - Finding the missing element of an arithmetic progression game
 
