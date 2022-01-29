@@ -1,4 +1,4 @@
-export const questionIsEven = 'Answer "yes" if the number is even, otherwise answer "no".';
+export const questionForEven = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const isEven = (number) => {
   if (number % 2 === 0) {
@@ -7,23 +7,12 @@ const isEven = (number) => {
   return false;
 };
 
-export const makeQuestionEven = (maximum) => {
-  let items = '';
-  items += `${Math.ceil(Math.random() * maximum)}`;
-  return items;
-};
-
-const trueAnswerEven = (number) => {
+export const makeQuestionAndTrueAnswerEven = (maximum) => {
+  const number = Math.ceil(Math.random() * maximum);
+  const item = `${number}`;
+  let trueAnswer = 'no';
   if (isEven(number)) {
-    return 'yes';
+    trueAnswer = 'yes';
   }
-  return 'no';
-};
-
-export const isTrueAnswerEven = (number, answer) => {
-  const etalon = trueAnswerEven(number);
-  if ((etalon === 'yes' && answer === 'yes') || (etalon === 'no' && answer === 'no')) {
-    return [etalon, true];
-  }
-  return [etalon, false];
+  return [item, trueAnswer];
 };

@@ -10,19 +10,12 @@ const gcd = (a, b) => {
   return gcd(minimum, rest);
 };
 
-export const makeQuestionGCD = (maximum) => {
+export const makeQuestionAndTrueAnswerGCD = (maximum) => {
   let items = '';
-  items += `${Math.ceil(Math.random() * maximum)} `;
-  items += `${Math.ceil(Math.random() * maximum)}`;
-  return items;
-};
-
-const trueAnswerGCD = (a, b) => (gcd(a, b));
-
-export const isTrueAnswerGCD = (a, b, answer) => {
-  const etalon = trueAnswerGCD(a, b);
-  if (Number(answer) === etalon) {
-    return [etalon, true];
-  }
-  return [etalon, false];
+  const a = Math.ceil(Math.random() * maximum);
+  items += `${a} `;
+  const b = Math.ceil(Math.random() * maximum);
+  items += `${b}`;
+  const trueAnswer = gcd(a, b);
+  return [items, trueAnswer];
 };

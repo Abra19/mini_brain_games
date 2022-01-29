@@ -23,7 +23,7 @@ const makeProgression = (maximum) => {
   return result;
 };
 
-export const makeQuestionProgression = (maximum) => {
+export const makeQuestionAndTrueAnswerProgression = (maximum) => {
   const progression = makeProgression(maximum);
   let items = String(progression[0]);
   const findElementIndex = Math.ceil(Math.random() * (progression.length - 1));
@@ -34,30 +34,6 @@ export const makeQuestionProgression = (maximum) => {
       items += ' ..';
     }
   }
-  return items;
-};
-
-const trueAnswerProgression = (items) => {
-  let findIndex;
-  for (let i = 0; i < items.length; i += 1) {
-    if (items[i] === '..') {
-      findIndex = i;
-      break;
-    }
-  }
-  if (findIndex === 0) {
-    return 2 * items[1] - items[2];
-  }
-  if (findIndex === items.length - 1) {
-    return 2 * items[items.length - 2] - items[items.length - 3];
-  }
-  return (Number(items[findIndex - 1]) + Number(items[findIndex + 1])) / 2;
-};
-
-export const isTrueAnswerProgression = (items, answer) => {
-  const etalon = trueAnswerProgression(items);
-  if (Number(answer) === etalon) {
-    return [etalon, true];
-  }
-  return [etalon, false];
+  const trueAnswer = progression[findElementIndex];
+  return [items, trueAnswer];
 };

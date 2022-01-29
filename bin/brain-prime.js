@@ -1,7 +1,5 @@
 #!/usr/bin/env node
-import helloUser from '../src/cli.js';
 import brainLogic from '../src/index.js';
+import { makeQuestionAndTrueAnswerPrime, questionForPrime } from '../src/games/primeGame.js';
 
-const [name, message] = helloUser();
-console.log(message);
-brainLogic(name, '5');
+brainLogic(makeQuestionAndTrueAnswerPrime, questionForPrime);

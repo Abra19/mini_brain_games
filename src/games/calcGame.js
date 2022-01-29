@@ -11,28 +11,21 @@ const selectOperation = () => {
   return '*';
 };
 
-export const makeQuestionCalc = (maximum) => {
+export const makeQuestionAndTrueAnswerCalc = (maximum) => {
   let items = '';
-  items += `${Math.ceil(Math.random() * maximum)} `;
-  items += `${selectOperation()} `;
-  items += `${Math.ceil(Math.random() * maximum)}`;
-  return items;
-};
-
-const trueAnswerCalc = (a, operation, b) => {
+  const a = Math.ceil(Math.random() * maximum);
+  items += `${a} `;
+  const operation = selectOperation();
+  items += `${operation} `;
+  const b = Math.ceil(Math.random() * maximum);
+  items += `${b}`;
+  let trueAnswer;
   if (operation === '+') {
-    return Number(a) + Number(b);
+    trueAnswer = Number(a) + Number(b);
+  } else if (operation === '-') {
+    trueAnswer = Number(a) - Number(b);
+  } else {
+    trueAnswer = Number(a) * Number(b);
   }
-  if (operation === '-') {
-    return Number(a) - Number(b);
-  }
-  return Number(a) * Number(b);
-};
-
-export const isTrueAnswerCalc = (a, operation, b, answer) => {
-  const etalon = trueAnswerCalc(a, operation, b);
-  if (Number(answer) === etalon) {
-    return [etalon, true];
-  }
-  return [etalon, false];
+  return [items, trueAnswer];
 };

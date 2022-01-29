@@ -1,7 +1,5 @@
 #!/usr/bin/env node
-import helloUser from '../src/cli.js';
 import brainLogic from '../src/index.js';
+import { makeQuestionAndTrueAnswerProgression, questionForProgression } from '../src/games/progressionGame.js';
 
-const [name, message] = helloUser();
-console.log(message);
-brainLogic(name, '4');
+brainLogic(makeQuestionAndTrueAnswerProgression, questionForProgression);

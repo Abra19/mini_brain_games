@@ -1,7 +1,5 @@
 #!/usr/bin/env node
-import helloUser from '../src/cli.js';
 import brainLogic from '../src/index.js';
+import { makeQuestionAndTrueAnswerGCD, questionForGCD } from '../src/games/gcdGame.js';
 
-const [name, message] = helloUser();
-console.log(message);
-brainLogic(name, '3');
+brainLogic(makeQuestionAndTrueAnswerGCD, questionForGCD);

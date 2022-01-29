@@ -1,4 +1,4 @@
-export const questionIsPrime = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+export const questionForPrime = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
   if (number < 2) {
@@ -12,23 +12,13 @@ const isPrime = (number) => {
   return true;
 };
 
-export const makeQuestionPrime = (maximum) => {
-  let items = '';
-  items += `${Math.ceil(Math.random() * maximum)}`;
-  return items;
-};
-
-const trueAnswerPrime = (number) => {
+export const makeQuestionAndTrueAnswerPrime = (maximum) => {
+  let item = '';
+  const number = Math.ceil(Math.random() * maximum);
+  item += `${number}`;
+  let trueAnswer = 'no';
   if (isPrime(number)) {
-    return 'yes';
+    trueAnswer = 'yes';
   }
-  return 'no';
-};
-
-export const isTrueAnswerPrime = (number, answer) => {
-  const etalon = trueAnswerPrime(number);
-  if ((etalon === 'yes' && answer === 'yes') || (etalon === 'no' && answer === 'no')) {
-    return [etalon, true];
-  }
-  return [etalon, false];
+  return [item, trueAnswer];
 };
