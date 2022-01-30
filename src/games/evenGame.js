@@ -1,4 +1,6 @@
-export const questionForEven = 'Answer "yes" if the number is even, otherwise answer "no".';
+import randomGenerate from '../random.js';
+
+export const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const isEven = (number) => {
   if (number % 2 === 0) {
@@ -7,12 +9,9 @@ const isEven = (number) => {
   return false;
 };
 
-export const makeQuestionAndTrueAnswerEven = (maximum) => {
-  const number = Math.ceil(Math.random() * maximum);
-  const item = `${number}`;
-  let trueAnswer = 'no';
-  if (isEven(number)) {
-    trueAnswer = 'yes';
-  }
-  return [item, trueAnswer];
+export const generateRound = (maximum) => {
+  const number = randomGenerate(maximum);
+  const question = `${number}`;
+  const trueAnswer = isEven(number) ? 'yes' : 'no';
+  return [question, trueAnswer];
 };

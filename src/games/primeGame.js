@@ -1,4 +1,6 @@
-export const questionForPrime = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+import randomGenerate from '../random.js';
+
+export const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
   if (number < 2) {
@@ -12,13 +14,9 @@ const isPrime = (number) => {
   return true;
 };
 
-export const makeQuestionAndTrueAnswerPrime = (maximum) => {
-  let item = '';
-  const number = Math.ceil(Math.random() * maximum);
-  item += `${number}`;
-  let trueAnswer = 'no';
-  if (isPrime(number)) {
-    trueAnswer = 'yes';
-  }
-  return [item, trueAnswer];
+export const generateRound = (maximum) => {
+  const number = randomGenerate(maximum);
+  const question = `${number}`;
+  const trueAnswer = isPrime(number) ? 'yes' : 'no';
+  return [question, trueAnswer];
 };

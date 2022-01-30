@@ -1,39 +1,32 @@
-export const questionForProgression = 'What number is missing in the progression?';
+import randomGenerate from '../random.js';
 
-const progressionProperty = (maximum) => {
-  const progressionBase = [];
-  const start = 5;
-  const finish = 10;
-  const deltaMaximum = 15;
-  const length = Math.ceil(Math.random() * (finish - start) + start);
-  progressionBase.push(length);
-  const firstElement = Math.ceil(Math.random() * maximum);
-  progressionBase.push(firstElement);
-  const delta = Math.ceil(Math.random() * deltaMaximum);
-  progressionBase.push(delta);
-  return progressionBase;
-};
+export const gameRules = 'What number is missing in the progression?';
 
-const makeProgression = (maximum) => {
+const makeProgression = (length, first, step) => {
   const result = [];
-  const property = progressionProperty(maximum);
-  for (let i = 1; i < property[0]; i += 1) {
-    result.push(property[1] + i * property[2]);
+  for (let i = 1; i < length; i += 1) {
+    result.push(first + i * step);
   }
   return result;
 };
 
-export const makeQuestionAndTrueAnswerProgression = (maximum) => {
-  const progression = makeProgression(maximum);
-  let items = String(progression[0]);
-  const findElementIndex = Math.ceil(Math.random() * (progression.length - 1));
+export const generateRound = (maximum) => {
+  const minElements = 5;
+  const maxElements = 10;
+  const stepLengthMaximum = 15;
+  const length = randomGenerate(maxElements - minElements) + minElements;
+  const firstElement = randomGenerate(maximum);
+  const step = randomGenerate(stepLengthMaximum);
+  const progression = makeProgression(length, firstElement, step);
+  let question = String(progression[0]);
+  const findElementIndex = randomGenerate(progression.length - 1);
   for (let i = 1; i < progression.length; i += 1) {
     if (i !== findElementIndex) {
-      items += ` ${progression[i]}`;
+      question += ` ${progression[i]}`;
     } else {
-      items += ' ..';
+      question += ' ..';
     }
   }
   const trueAnswer = progression[findElementIndex];
-  return [items, trueAnswer];
+  return [question, trueAnswer];
 };

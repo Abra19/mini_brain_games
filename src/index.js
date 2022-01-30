@@ -1,13 +1,13 @@
 import readlineSync from 'readline-sync';
-import helloUser from './cli.js';
 
 const brainLogic = (gameFunction, gameRules) => {
-  let count = 1;
-  const [name, message] = helloUser();
-  console.log(message);
+  console.log('Welcome to the Brain Games!');
+  const userName = readlineSync.question('May I have your name? ');
+  const helloMessage = `Hello, ${userName}!`;
+  console.log(helloMessage);
   console.log(gameRules);
   const numbersMaximum = 100;
-  while (count <= 3) {
+  for (let count = 1; count <= 3; count += 1) {
     const [stringQuestion, correctAnswer] = gameFunction(numbersMaximum);
     const answer = readlineSync.question(`Question: ${stringQuestion}\nYour answer: `);
     let isCorrectAnswer = false;
@@ -16,12 +16,11 @@ const brainLogic = (gameFunction, gameRules) => {
     }
     if (isCorrectAnswer && count < 3) {
       console.log('Correct!');
-      count += 1;
     } else if (isCorrectAnswer && count === 3) {
-      console.log(`Correct!\nCongratulations, ${name}!`);
+      console.log(`Correct!\nCongratulations, ${userName}!`);
       break;
     } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
       break;
     }
   }

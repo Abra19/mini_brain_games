@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 import brainLogic from '../src/index.js';
-import { makeQuestionAndTrueAnswerPrime, questionForPrime } from '../src/games/primeGame.js';
+import { generateRound, gameRules } from '../src/games/primeGame.js';
 
-brainLogic(makeQuestionAndTrueAnswerPrime, questionForPrime);
+brainLogic(generateRound, gameRules);

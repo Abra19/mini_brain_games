@@ -1,7 +1,9 @@
-export const questionForCalc = 'What is the result of the expression?';
+import randomGenerate from '../random.js';
 
-const selectOperation = () => {
-  const number = Math.ceil(Math.random() * 100);
+export const gameRules = 'What is the result of the expression?';
+
+const selectOperation = (maximum) => {
+  const number = randomGenerate(maximum);
   if (number % 3 === 0) {
     return '+';
   }
@@ -11,21 +13,21 @@ const selectOperation = () => {
   return '*';
 };
 
-export const makeQuestionAndTrueAnswerCalc = (maximum) => {
-  let items = '';
-  const a = Math.ceil(Math.random() * maximum);
-  items += `${a} `;
-  const operation = selectOperation();
-  items += `${operation} `;
-  const b = Math.ceil(Math.random() * maximum);
-  items += `${b}`;
-  let trueAnswer;
+const makeCalc = (a, operation, b) => {
   if (operation === '+') {
-    trueAnswer = Number(a) + Number(b);
-  } else if (operation === '-') {
-    trueAnswer = Number(a) - Number(b);
-  } else {
-    trueAnswer = Number(a) * Number(b);
+    return Number(a) + Number(b);
   }
-  return [items, trueAnswer];
+  if (operation === '-') {
+    return Number(a) - Number(b);
+  }
+  return Number(a) * Number(b);
+};
+
+export const generateRound = (maximum) => {
+  const a = randomGenerate(maximum);
+  const operation = selectOperation(maximum);
+  const b = randomGenerate(maximum);
+  const question = `${a} ${operation} ${b}`;
+  const trueAnswer = makeCalc(a, operation, b);
+  return [question, trueAnswer];
 };
