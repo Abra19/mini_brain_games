@@ -5,15 +5,15 @@ const gameRules = 'What number is missing in the progression?';
 
 const makeProgression = (length, first, step) => {
   const result = [];
-  for (let i = 1; i < length; i += 1) {
+  for (let i = 0; i < length; i += 1) {
     result.push(first + i * step);
   }
   return result;
 };
 
 const questionGenerate = (progression, index) => {
-  let question = String(progression[0]);
-  for (let i = 1; i < progression.length; i += 1) {
+  let question = '';
+  for (let i = 0; i < progression.length; i += 1) {
     if (i !== index) {
       question += ` ${progression[i]}`;
     } else {
@@ -26,13 +26,13 @@ const questionGenerate = (progression, index) => {
 const generateRound = () => {
   const minElements = 5;
   const maxElements = 10;
-  const stepLengthMinimum = 0;
-  const stepLengthMaximum = 15;
+  const stepMinimum = 1;
+  const stepMaximum = 15;
   const minNumber = 0;
   const maxNumber = 100;
   const length = randomGenerate(minElements, maxElements);
   const firstElement = randomGenerate(minNumber, maxNumber);
-  const step = randomGenerate(stepLengthMinimum, stepLengthMaximum);
+  const step = randomGenerate(stepMinimum, stepMaximum);
   const progression = makeProgression(length, firstElement, step);
   const findElementIndex = randomGenerate(0, progression.length - 1);
   const question = questionGenerate(progression, findElementIndex);
