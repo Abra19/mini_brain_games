@@ -35,7 +35,7 @@ const generateRound = () => {
   const firstElement = randomGenerate(minNumber, maxNumber);
   const step = randomGenerate(stepMinimum, stepMaximum);
   const progression = makeProgression(length, firstElement, step);
-  const findElementIndex = randomGenerate(0, progression.length - 1);
+  const findElementIndex = randomGenerate(1, progression.length - 1);
   const question = questionGenerate(progression, findElementIndex);
   const trueAnswer = progression[findElementIndex];
   return [question, String(trueAnswer)];
