@@ -24,7 +24,7 @@ const questionGenerate = (progression, index) => {
 };
 
 const generateRound = () => {
-  const minElements = 5;
+  const minElements = 6;
   const maxElements = 10;
   const stepMinimum = 1;
   const stepMaximum = 15;
