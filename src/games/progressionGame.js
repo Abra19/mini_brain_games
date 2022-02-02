@@ -12,8 +12,8 @@ const makeProgression = (length, first, step) => {
 };
 
 const questionGenerate = (progression, index) => {
-  let question = '';
-  for (let i = 0; i < progression.length; i += 1) {
+  let question = progression[0];
+  for (let i = 1; i < progression.length; i += 1) {
     if (i !== index) {
       question += ` ${progression[i]}`;
     } else {
@@ -24,7 +24,7 @@ const questionGenerate = (progression, index) => {
 };
 
 const generateRound = () => {
-  const minElements = 6;
+  const minElements = 5;
   const maxElements = 10;
   const stepMinimum = 1;
   const stepMaximum = 15;
