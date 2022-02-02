@@ -1,6 +1,7 @@
 import randomGenerate from '../random.js';
+import brainLogic from '../index.js';
 
-export const gameRules = 'What number is missing in the progression?';
+const gameRules = 'What number is missing in the progression?';
 
 const makeProgression = (length, first, step) => {
   const result = [];
@@ -10,23 +11,33 @@ const makeProgression = (length, first, step) => {
   return result;
 };
 
-export const generateRound = (maximum) => {
-  const minElements = 5;
-  const maxElements = 10;
-  const stepLengthMaximum = 15;
-  const length = randomGenerate(maxElements - minElements) + minElements;
-  const firstElement = randomGenerate(maximum);
-  const step = randomGenerate(stepLengthMaximum);
-  const progression = makeProgression(length, firstElement, step);
+const questionGenerate = (progression, index) => {
   let question = String(progression[0]);
-  const findElementIndex = randomGenerate(progression.length - 1);
   for (let i = 1; i < progression.length; i += 1) {
-    if (i !== findElementIndex) {
+    if (i !== index) {
       question += ` ${progression[i]}`;
     } else {
       question += ' ..';
     }
   }
-  const trueAnswer = progression[findElementIndex];
-  return [question, trueAnswer];
+  return question;
 };
+
+const generateRound = () => {
+  const minElements = 5;
+  const maxElements = 10;
+  const stepLengthMinimum = 0;
+  const stepLengthMaximum = 15;
+  const minNumber = 0;
+  const maxNumber = 100;
+  const length = randomGenerate(minElements, maxElements);
+  const firstElement = randomGenerate(minNumber, maxNumber);
+  const step = randomGenerate(stepLengthMinimum, stepLengthMaximum);
+  const progression = makeProgression(length, firstElement, step);
+  const findElementIndex = randomGenerate(0, progression.length - 1);
+  const question = questionGenerate(progression, findElementIndex);
+  const trueAnswer = progression[findElementIndex];
+  return [question, String(trueAnswer)];
+};
+
+export default () => brainLogic(generateRound, gameRules);

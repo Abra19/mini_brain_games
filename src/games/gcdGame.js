@@ -1,21 +1,18 @@
 import randomGenerate from '../random.js';
+import brainLogic from '../index.js';
 
-export const gameRules = 'Find the greatest common divisor of given numbers.';
+const gameRules = 'Find the greatest common divisor of given numbers.';
 
-const gcd = (a, b) => {
-  const maximum = Math.max(a, b);
-  const minimum = Math.min(a, b);
-  const rest = maximum % minimum;
-  if (rest === 0) {
-    return minimum;
-  }
-  return gcd(minimum, rest);
-};
+const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
 
-export const generateRound = (maximum) => {
-  const a = randomGenerate(maximum);
-  const b = randomGenerate(maximum);
+const generateRound = () => {
+  const minNumber = 0;
+  const maxNumber = 100;
+  const a = randomGenerate(minNumber, maxNumber);
+  const b = randomGenerate(minNumber, maxNumber);
   const question = `${a} ${b}`;
   const trueAnswer = gcd(a, b);
-  return [question, trueAnswer];
+  return [question, String(trueAnswer)];
 };
+
+export default () => brainLogic(generateRound, gameRules);

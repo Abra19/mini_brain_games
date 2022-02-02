@@ -1,33 +1,35 @@
 import randomGenerate from '../random.js';
+import brainLogic from '../index.js';
 
-export const gameRules = 'What is the result of the expression?';
+const gameRules = 'What is the result of the expression?';
 
-const selectOperation = (maximum) => {
-  const number = randomGenerate(maximum);
-  if (number % 3 === 0) {
-    return '+';
-  }
-  if (number % 3 === 1) {
-    return '-';
-  }
-  return '*';
+const selectOperation = (min, max) => {
+  const number = randomGenerate(min, max);
+  const operations = ['+', '-', '*'];
+  const index = number % 3;
+  return operations[index];
 };
 
-const makeCalc = (a, operation, b) => {
-  if (operation === '+') {
-    return Number(a) + Number(b);
+const makeCalc = (a, b, operation) => {
+  switch (operation) {
+    case '+':
+      return Number(a) + Number(b);
+    case '-':
+      return Number(a) - Number(b);
+    default:
+      return Number(a) * Number(b);
   }
-  if (operation === '-') {
-    return Number(a) - Number(b);
-  }
-  return Number(a) * Number(b);
 };
 
-export const generateRound = (maximum) => {
-  const a = randomGenerate(maximum);
-  const operation = selectOperation(maximum);
-  const b = randomGenerate(maximum);
+const generateRound = () => {
+  const minNumber = 0;
+  const maxNumber = 100;
+  const a = randomGenerate(minNumber, maxNumber);
+  const operation = selectOperation(minNumber, maxNumber);
+  const b = randomGenerate(minNumber, maxNumber);
   const question = `${a} ${operation} ${b}`;
-  const trueAnswer = makeCalc(a, operation, b);
-  return [question, trueAnswer];
+  const trueAnswer = makeCalc(a, b, operation);
+  return [question, String(trueAnswer)];
 };
+
+export default () => brainLogic(generateRound, gameRules);

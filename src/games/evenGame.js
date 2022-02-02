@@ -1,17 +1,17 @@
 import randomGenerate from '../random.js';
+import brainLogic from '../index.js';
 
-export const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
+const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const isEven = (number) => {
-  if (number % 2 === 0) {
-    return true;
-  }
-  return false;
-};
+const isEven = (number) => (!(number % 2));
 
-export const generateRound = (maximum) => {
-  const number = randomGenerate(maximum);
-  const question = `${number}`;
+const generateRound = () => {
+  const minNumber = 0;
+  const maxNumber = 100;
+  const number = randomGenerate(minNumber, maxNumber);
+  const question = String(number);
   const trueAnswer = isEven(number) ? 'yes' : 'no';
   return [question, trueAnswer];
 };
+
+export default () => brainLogic(generateRound, gameRules);

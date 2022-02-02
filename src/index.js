@@ -7,21 +7,19 @@ const brainLogic = (gameFunction, gameRules) => {
   console.log(helloMessage);
   console.log(gameRules);
   const numbersMaximum = 100;
-  for (let count = 1; count <= 3; count += 1) {
+  const roundNumber = 3;
+  for (let count = 1; count <= roundNumber; count += 1) {
     const [stringQuestion, correctAnswer] = gameFunction(numbersMaximum);
-    const answer = readlineSync.question(`Question: ${stringQuestion}\nYour answer: `);
-    let isCorrectAnswer = false;
-    if (String(correctAnswer) === String(answer)) {
-      isCorrectAnswer = true;
-    }
-    if (isCorrectAnswer && count < 3) {
-      console.log('Correct!');
-    } else if (isCorrectAnswer && count === 3) {
-      console.log(`Correct!\nCongratulations, ${userName}!`);
-      break;
-    } else {
+    console.log(`Question: ${stringQuestion}`);
+    const answer = readlineSync.question('Your answer: ');
+    if (correctAnswer !== answer) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
-      break;
+      return;
+    }
+    if (count < 3) {
+      console.log('Correct!');
+    } else {
+      console.log(`Correct!\nCongratulations, ${userName}!`);
     }
   }
 };

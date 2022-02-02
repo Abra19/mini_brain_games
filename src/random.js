@@ -1,3 +1,3 @@
-const randomGenerate = (maximum) => (Math.ceil(Math.random() * maximum));
+const randomGenerate = (start, end) => ((Math.round(Math.random() * (end - start))) + start);
 
 export default randomGenerate;
