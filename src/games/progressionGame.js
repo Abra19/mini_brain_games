@@ -5,7 +5,8 @@ const gameRules = 'What number is missing in the progression?';
 
 const makeProgression = (length, first, step) => {
   const result = [];
-  for (let i = 0; i < length; i += 1) {
+  result[0] = first;
+  for (let i = 1; i < length; i += 1) {
     result.push(first + i * step);
   }
   return result;
