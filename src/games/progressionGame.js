@@ -13,7 +13,7 @@ const makeProgression = (length, first, step) => {
 };
 
 const questionGenerate = (progression, index) => {
-  let question = progression[0];
+  let question = String(progression[0]);
   for (let i = 1; i < progression.length; i += 1) {
     if (i !== index) {
       question += ` ${progression[i]}`;
