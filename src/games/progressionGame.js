@@ -1,27 +1,20 @@
-import randomGenerate from '../random.js';
-import brainLogic from '../index.js';
+import generateRandom from '../random.js';
+import runGame from '../index.js';
 
 const gameRules = 'What number is missing in the progression?';
 
 const makeProgression = (length, first, step) => {
   const result = [];
-  result[0] = first;
-  for (let i = 1; i < length; i += 1) {
+  for (let i = 0; i < length; i += 1) {
     result.push(first + i * step);
   }
   return result;
 };
 
 const questionGenerate = (progression, index) => {
-  let question = String(progression[0]);
-  for (let i = 1; i < progression.length; i += 1) {
-    if (i !== index) {
-      question += ` ${progression[i]}`;
-    } else {
-      question += ' ..';
-    }
-  }
-  return question;
+  const progressionCopy = progression.slice();
+  progressionCopy[index] = '..';
+  return progressionCopy.join(' ');
 };
 
 const generateRound = () => {
@@ -31,14 +24,14 @@ const generateRound = () => {
   const stepMaximum = 15;
   const minNumber = 0;
   const maxNumber = 100;
-  const length = randomGenerate(minElements, maxElements);
-  const firstElement = randomGenerate(minNumber, maxNumber);
-  const step = randomGenerate(stepMinimum, stepMaximum);
+  const length = generateRandom(minElements, maxElements);
+  const firstElement = generateRandom(minNumber, maxNumber);
+  const step = generateRandom(stepMinimum, stepMaximum);
   const progression = makeProgression(length, firstElement, step);
-  const findElementIndex = randomGenerate(1, progression.length - 1);
+  const findElementIndex = generateRandom(1, progression.length - 1);
   const question = questionGenerate(progression, findElementIndex);
   const trueAnswer = progression[findElementIndex];
   return [question, String(trueAnswer)];
 };
 
-export default () => brainLogic(generateRound, gameRules);
+export default () => runGame(generateRound, gameRules);

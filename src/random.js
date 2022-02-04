@@ -1,3 +1,3 @@
-const randomGenerate = (start, end) => ((Math.round(Math.random() * (end - start))) + start);
+const generateRandom = (start, end) => ((Math.round(Math.random() * (end - start))) + start);
 
-export default randomGenerate;
+export default generateRandom;

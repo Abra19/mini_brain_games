@@ -1,5 +1,5 @@
-import randomGenerate from '../random.js';
-import brainLogic from '../index.js';
+import generateRandom from '../random.js';
+import runGame from '../index.js';
 
 const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -19,10 +19,10 @@ const isPrime = (number) => {
 const generateRound = () => {
   const minNumber = 0;
   const maxNumber = 100;
-  const number = randomGenerate(minNumber, maxNumber);
-  const question = `${number}`;
+  const number = generateRandom(minNumber, maxNumber);
+  const question = String(number);
   const trueAnswer = isPrime(number) ? 'yes' : 'no';
   return [question, trueAnswer];
 };
 
-export default () => brainLogic(generateRound, gameRules);
+export default () => runGame(generateRound, gameRules);
