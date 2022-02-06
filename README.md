@@ -10,29 +10,29 @@ This project implemented a set of mini-games launched from the console
 2. Install package: `make install`
 3. Link: `npm link`
 
-[![asciicast](https://asciinema.org/a/EEiCtIjYphLLOqSTfRf1gWOs0.svg)](https://asciinema.org/a/EEiCtIjYphLLOqSTfRf1gWOs0)
+[![asciicast](https://asciinema.org/a/FS60NV3xDEsKWGpyFVwnBxaGg.svg)](https://asciinema.org/a/FS60NV3xDEsKWGpyFVwnBxaGg)
 ### To run 
 
  `brain-games`          - Welcome message
 
-[![asciicast](https://asciinema.org/a/XDBv63TzHVSeqf1rBilrtJDVj.svg)](https://asciinema.org/a/XDBv63TzHVSeqf1rBilrtJDVj)
+[![asciicast](https://asciinema.org/a/4jNp1XhRzuLoeA677BZ2jjn3j.svg)](https://asciinema.org/a/4jNp1XhRzuLoeA677BZ2jjn3j)
 
  `brain-even`           -  Parity game
 
-[![asciicast](https://asciinema.org/a/mtzDajiMDwt22KUCcURjSolX6.svg)](https://asciinema.org/a/mtzDajiMDwt22KUCcURjSolX6)
+[![asciicast](https://asciinema.org/a/SVC6HCYbwCD5INqRe7b6BMryR.svg)](https://asciinema.org/a/SVC6HCYbwCD5INqRe7b6BMryR)
 
  `brain-calc`           -  The Calculate game
 
-[![asciicast](https://asciinema.org/a/4v79eNIQnablBmQVvUXUexzbC.svg)](https://asciinema.org/a/4v79eNIQnablBmQVvUXUexzbC)
+[![asciicast](https://asciinema.org/a/MoVnxPjILvZnq5a8WzIfOAQZG.svg)](https://asciinema.org/a/MoVnxPjILvZnq5a8WzIfOAQZG)
 
  `brain-gcd`            - Find Great Common Divisor game
       
-[![asciicast](https://asciinema.org/a/k74yHj1r9xPs1Foliv1eRULPj.svg)](https://asciinema.org/a/k74yHj1r9xPs1Foliv1eRULPj)
+[![asciicast](https://asciinema.org/a/gyZT78pkyQVvpapQIyorfdUEK.svg)](https://asciinema.org/a/gyZT78pkyQVvpapQIyorfdUEK)
 
  `brain-prime`          - Prime search game
 
-[![asciicast](https://asciinema.org/a/xrcjjb89DzGnpSlGsBpDxx5Ep.svg)](https://asciinema.org/a/xrcjjb89DzGnpSlGsBpDxx5Ep)
+[![asciicast](https://asciinema.org/a/2EpcaIgFPrX6gl5dn3KZri0uh.svg)](https://asciinema.org/a/2EpcaIgFPrX6gl5dn3KZri0uh)
 
  `brain-progression`    - Finding the missing element of an arithmetic progression game
 
-[![asciicast](https://asciinema.org/a/7fnI9NCfSKJEzX8uoxPMg33ps.svg)](https://asciinema.org/a/7fnI9NCfSKJEzX8uoxPMg33ps)
+[![asciicast](https://asciinema.org/a/kzkHV6JxZ3JCMtj16EszcrLrm.svg)](https://asciinema.org/a/kzkHV6JxZ3JCMtj16EszcrLrm)

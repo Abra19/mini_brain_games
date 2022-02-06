@@ -2,11 +2,7 @@ import generateRandom from '../random.js';
 import runGame from '../index.js';
 
 const gameRules = 'What is the result of the expression?';
-
-const selectOperation = () => {
-  const operations = ['+', '-', '*'];
-  return operations[generateRandom(0, operations.length - 1)];
-};
+const operations = ['+', '-', '*'];
 
 const makeCalc = (a, b, operation) => {
   switch (operation) {
@@ -22,11 +18,9 @@ const makeCalc = (a, b, operation) => {
 };
 
 const generateRound = () => {
-  const minNumber = 0;
-  const maxNumber = 100;
-  const a = generateRandom(minNumber, maxNumber);
-  const operation = selectOperation();
-  const b = generateRandom(minNumber, maxNumber);
+  const a = generateRandom(0, 100);
+  const operation = operations[generateRandom(0, operations.length - 1)];
+  const b = generateRandom(0, 100);
   const question = `${a} ${operation} ${b}`;
   const trueAnswer = makeCalc(a, b, operation);
   return [question, String(trueAnswer)];

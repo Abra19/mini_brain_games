@@ -18,17 +18,11 @@ const questionGenerate = (progression, index) => {
 };
 
 const generateRound = () => {
-  const minElements = 5;
-  const maxElements = 10;
-  const stepMinimum = 1;
-  const stepMaximum = 15;
-  const minNumber = 0;
-  const maxNumber = 100;
-  const length = generateRandom(minElements, maxElements);
-  const firstElement = generateRandom(minNumber, maxNumber);
-  const step = generateRandom(stepMinimum, stepMaximum);
+  const length = generateRandom(5, 10);
+  const firstElement = generateRandom(0, 100);
+  const step = generateRandom(1, 15);
   const progression = makeProgression(length, firstElement, step);
-  const findElementIndex = generateRandom(1, progression.length - 1);
+  const findElementIndex = generateRandom(0, progression.length - 1);
   const question = questionGenerate(progression, findElementIndex);
   const trueAnswer = progression[findElementIndex];
   return [question, String(trueAnswer)];
