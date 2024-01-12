@@ -6,7 +6,7 @@
 This project implemented a set of mini-games launched from the console
 ### To get started
 
-1. Clone git repo: `git clone https://github.com/Abra19/frontend-project-lvl1.git`
+1. Clone git repo: `git clone git@github.com:Abra19/mini_brain_games.git`
 2. Install package: `make install`
 3. Link: `npm link`
 
